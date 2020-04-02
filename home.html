@@ -5,6 +5,7 @@
 		<meta name="author" content="Hayden Crawford,Kylie Anderson,Darren Funes">
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
+		<script src="home.js"></script>
 		<style>
 			#container {
 				display:grid;
@@ -26,7 +27,7 @@
 				margin-right:20px;
 			}
 			#logo:hover {
-				cursor:default;
+				cursor:pointer;
 			}
 			#3P {
 			}
@@ -101,7 +102,7 @@
 		<div id="container">
 			<div id="logo">
 				<div id = "3P">
-					<h1><a>3  P</a></h1>
+					<h1>3  P</h1>
 				</div>
 				<div id = "quiz">
 					<h3>QUIZ</h3>
@@ -112,10 +113,10 @@
 			</div>
 			<div id="navbar">
 				<div class="item" id = "i1">
-					<h4><a href="home.html">About</a></h4>
+					<h4>About</h4>
 				</div>
 				<div class="item" id = "i2">
-					<h4><a href="login.html">Sign in or Register</a></h4>
+					<h4>Sign in or Register</h4>
 				</div>
 				<div class="disableditem" id = "i3">
 					<h4>Take the Quiz</h4>
@@ -124,24 +125,21 @@
 					<h4>View Past Results</h4>
 				</div>
 				<div class="disableditem" id = "i5">
-					<h4><a href="profile.html">Profile Information</a></h4>
+					<h4>Profile Information</h4>
 				</div>
 			</div>
 			<div id="main">
 				<h2>
-					For each page, we should put the content inside of this div.
-					When the user is logged in, we should update the sidebar
-					with their information, enable the items in the nav bar, and 
-					change the sign-in option to be a log out option.
-					Links need to be registered to all active items in the nav bar using
-					the javascript onclick attribute.  I think we should keep all styling in the html
-					but use linked js files for the scripting.
-					<br><br>
-					So we can work with each other, keep the names of the pages as
-					home.html, about.html, login.html, quiz.html, results.html, and 
-					profile.html. The names of the javascript files will be the same,
-					but with the .js extension.
+					Welcome to the Programming Personality Profile website!
+					<br>
 				</h2>
+				<p>
+					This project was developed by Hayden Crawford, Darren Funes,
+					and Kylie Anderson to create a fun classification system for 
+					programmers and programming students.<br><br>
+					<a href="login.html">Log in</a> and take the quiz to find out what <a href="about.html">
+					type of programmer</a> you are!
+				</p>
 			</div>
 			<div id="sidebar">
 				<h4>You are not currently signed in.<br></h4>

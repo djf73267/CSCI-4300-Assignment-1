@@ -22,8 +22,8 @@
 				grid-template-areas:
 					'logo header header header header header'
 					'logo navbar navbar navbar navbar navbar'
-					'main main main main main sidebar'
-					'main main main main main footer';
+					'main main main main main main'
+					'main main main main main main';
 				font-family:helvetica;
 				grid-gap:10px;
 				margin:10px;
@@ -37,7 +37,7 @@
 				margin-right:20px;
 			}
 			#logo:hover {
-				cursor:default;
+				cursor:pointer;
 			}
 			#3P {
 			}
@@ -121,7 +121,7 @@
 		<div id="container">
 			<div id="logo">
 				<div id = "3P">
-					<h1><a>3  P</a></h1>
+					<h1>3  P</h1>
 				</div>
 				<div id = "quiz">
 					<h3>QUIZ</h3>
@@ -132,10 +132,10 @@
 			</div>
 			<div id="navbar">
 				<div class="item" id = "i1">
-					<h4><a href="home.html">About</a></h4>
+					<h4>About</h4>
 				</div>
 				<div class="item" id = "i2">
-					<h4><a href="login.html">Sign in or Register</a></h4>
+					<h4>Sign in or Register</h4>
 				</div>
 				<div class="disableditem" id = "i3">
 					<h4>Take the Quiz</h4>
@@ -143,36 +143,24 @@
 				<div class="disableditem" id = "i4">
 					<h4>View Past Results</h4>
 				</div>
-				<div class="item" id = "i5">
-					<h4><a href="profile.html">Profile Information</a></h4>
+				<div class="disableditem" id = "i5">
+					<h4>Profile Information</h4>
 				</div>
 			</div>
 			<div id="main">
-                <form action="home.html">
+                <form>
                     <div class="login">
                         <label for="uname"><b>Username</b></label>
-						<input type="text" placeholder="Enter Username" name="uname" required id = "uname">
+						<input type="text" placeholder="Enter Username" required name="uname" id = "uname">
                         <label for="psw"><b>Password</b></label>
 						<input name = password type="password" placeholder="Enter Password" required id = "password">
 						<label for="psw"><b>Re-Enter</b></label>
-						<input name = password_confirm type="password" placeholder="Re-Enter Password" name="psw" required id = "password_confirm" oninput="check(this)">
+						<input name = password_confirm type="password" placeholder="Re-Enter Password" required name="psw" id = "password_confirm" oninput="check(this)">
 						<button type="submit" id = "submit">Register</button>
 						
                         
                     </div>
                 </form>
-			</div>
-			<div id="sidebar">
-				<h4>You are not currently signed in.<br></h4>
-				<p>
-					Sign in to take the test, save your information, and print
-					your results.
-				</p>
-			</div>
-			<div id="footer">
-				<hr>
-				<br>
-				<p>Made by Hayden Crawford, Kylie Anderson, and Darren Funes</p>
 			</div>
 		</div>
 		<script language='javascript' type='text/javascript'>
