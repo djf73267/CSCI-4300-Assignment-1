@@ -6,7 +6,8 @@
         <meta name="author" content="Hayden Crawford,Kylie Anderson,Darren Funes">
 		<meta name="description" content="Programming Personality Profile">
         <meta name="keywords" content="test,quiz,personality,programming,programmer">
-        
+        <meta charset="UTF-8">
+
         <style>
             #container{
                 display:grid;
@@ -150,7 +151,18 @@
 
         </style>
 
-        <script src=results.js></script>
+        <script>
+            var max = localStorage.getItem("max");
+
+            window.onload = function(){
+                if(max != null){
+                     document.getElementById("result").innerHTML = "You got The " + max + "!";
+                }else{
+                     document.getElementById("result").innerHTML = "Take the test to find out your programmer personality.";
+                 }
+
+            }
+        </script>
     </head>
 
     <body>
@@ -183,7 +195,7 @@
             </div> 
 
             <div id="results">
-                <h2 style="color: red;">You are the _______!</h2>
+                <h2 id="result" style="color: red;"> </h3>
                 <h3>Hover over the archetypes below to learn more about
                     your programmer personality. <br>Thanks for taking the quiz!
                 </h3>
@@ -197,7 +209,7 @@
                        a great programmer, but most likely the embodyment of the "don't do this"
                        section of a CS textbook. The code cowboy does not often plan ahead and their
                        code is long and sometimes nonsensicle. The Code Cowboy does not play well
-                       with others, but is a pretty social character. They suffer from a bad case of 
+                       with others, but nevertheless a pretty social character. They suffer from a bad case of 
                        procrastination, but always seem to pull it off at the last second. 
                    </p>
                 </div>
@@ -208,7 +220,7 @@
                 <div class="dropdown-content" style="background-color: lightskyblue;"> 
                    <p>The Ninja is a silent killer. They keep to themselves, but work with undeniable
                        skill and efficiency. The Ninja prefers high level languages and always works alone
-                       when given the option. You may not even know their name, but they probably know you. The Ninja is also a bit of a procrastinator, waiting until a few days
+                       when given the option. You may not know their name, but they probably know you. The Ninja is also a bit of a procrastinator, waiting until a few days
                        before the project is due. They follow the project guidlines to a T and plan as they go. 
                        The Ninja is a real MVP.
                    </p>
@@ -223,7 +235,7 @@
                        The Magician prefers a higher level language but spends lots of time planning.
                        They work well in teams and are patient and mellow. The Magician prioritizes
                        organization and reuse even if that means taking things slow or adding more code.
-                       The Magician likes a challenge and makes a great leader. 
+                       The Magician likes a challenge and makes a calm and confident leader. 
                     </p>
                 </div>
             </div>
