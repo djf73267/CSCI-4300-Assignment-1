@@ -5,6 +5,9 @@ window.onload = function(){
     document.getElementById("last_name").value = localStorage.getItem("last_name");
     document.getElementById("email").value = localStorage.getItem("email");
     document.getElementById("DOB").value = localStorage.getItem("DOB");
+    if(this.localStorage.getItem("bool") == "signed_in"){
+        this.func_2();
+    }
 }
 
 function func_1(){
@@ -27,5 +30,8 @@ function func_1(){
 
        
     }
+}
+function func_2(){
+    document.getElementById("sidebar").innerHTML = "<h4>You are now signed in.</h4>"
 }
 
