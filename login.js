@@ -1,9 +1,9 @@
+
 window.onload = function(){
     document.getElementById("submit").addEventListener("click", func_1);
     document.getElementById("logout").addEventListener("click", func_2);
-    document.getElementById("submit").addEventListener("click", func_3);
-    document.getElementById("uname").value = localStorage.getItem("uname");
-    document.getElementById("password").value = localStorage.getItem("password");
+   
+    
     if(this.localStorage.getItem("bool") == "signed_in"){
         this.func_3();
     }
@@ -11,7 +11,7 @@ window.onload = function(){
 }
 
 function func_1(){
-   var n = document.getElementById("uname").value;
+   var n = document.getElementById("uname_login").value;
    var m = document.getElementById("password").value;
   
   
@@ -22,8 +22,13 @@ function func_1(){
         return false;
     }
     else {
-        localStorage.setItem("uname",n);
-        localStorage.setItem("password",m);
+        if(n == localStorage.getItem("uname")&& m == localStorage.getItem("password")){
+           func_3();
+        }
+        else {
+            window.alert("Incorrect Credentials");
+            return false;
+        }
 
        
     }
