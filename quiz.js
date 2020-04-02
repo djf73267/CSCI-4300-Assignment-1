@@ -2,6 +2,8 @@ var a = 0;
 var b = 0;
 var c = 0;
 var d = 0;
+var max=null;
+localStorage.setItem("max", max);
 
 function submitForm(){
     var temp = document.forms["ppquiz"]["whitespace"].value;
@@ -40,6 +42,15 @@ function submitForm(){
         c++;
     }
 
+    temp = document.forms["ppquiz"]["text"].value;
+    if(temp == "a"){
+        b++;
+    }else{
+        a++;
+        c++;
+        d++;
+    }
+
 
     temp = document.forms["ppquiz"]["drink"].value;
     increment(temp);
@@ -58,11 +69,12 @@ function submitForm(){
 
     temp = document.forms["ppquiz"]["priority"].value;
     increment(temp);
+    increment(temp);
 
     temp = document.forms["ppquiz"]["because"].value;
     increment(temp);
 
-    var max;
+    
     if(a > b && a > c && a > d){
         max = "Code Cowboy";
     }else if(b > a && b > c && b > d){
@@ -72,10 +84,11 @@ function submitForm(){
     }else if(d > a && d > b && d > c){
         max = "Ruler";
     }else{
-        max = "tie";
+        max = "Code Cowboy";
     }
 
-    alert(max);
+    localStorage.setItem("max", max);
+    
 }
 
 function increment(temp){
