@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
 <html lang="en" style="background-color:#e8e8e8;">
 	<head>
-		<title>Profile Page</title>
+		<title>Registration Page</title>
 		<meta name="author" content="Hayden Crawford,Kylie Anderson,Darren Funes">
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
 		<style>
 
             /* Full-width input fields */
-            input[type=first-name], input[type=last-name], input[type=dob], input[type=email] {
+            input[type=text], input[type=password] {
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -106,7 +106,7 @@
 				text-align:center;
 				color:#595959;
 			}
-            #profile{
+            #login{
                 padding: 10px;
 
             }
@@ -114,8 +114,8 @@
                 float: right;
                 padding-top: 16px;
                 }
-        </style>
-         <script src="profile.js"></script>
+		</style>
+		<script src = "new-account.js"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -148,27 +148,23 @@
 				</div>
 			</div>
 			<div id="main">
-                <form>
-                    <div class="profile">
-                        <label for="First-Name"><b>First Name</b></label>
-                        <input type="first-name" placeholder="Enter First Name" name="First-Name" required id = "first_name">
-                        <label for="Last-Name"><b>Last Name</b></label>
-                        <input type="last-name" placeholder="Enter Last Name" name="Last-Name" required id = "last_name">
-                        <label for="DOB"><b>Date of Birth</b></label><br>
-                        <input type="date" placeholder="Enter Date of Birth" name="DOB" required id = "DOB"><br>
-                        <br>
-                        <label for="EMAIL"><b>Email</b></label>
-                        <input type="email" placeholder="Enter Email" name="EMAIL" required id = "email">
-                        <button type = "submit" id = "submit">Submit</button>
-                       
+                <form action="home.html">
+                    <div class="login">
+                        <label for="uname"><b>Username</b></label>
+						<input type="text" placeholder="Enter Username" name="uname" required id = "uname">
+                        <label for="psw"><b>Password</b></label>
+						<input name = password type="password" placeholder="Enter Password" required id = "password">
+						<label for="psw"><b>Re-Enter</b></label>
+						<input name = password_confirm type="password" placeholder="Re-Enter Password" name="psw" required id = "password_confirm" oninput="check(this)">
+						<button type="submit" id = "submit">Register</button>
+						
+                        
                     </div>
                 </form>
 			</div>
 			<div id="sidebar">
 				<h4>You are not currently signed in.<br></h4>
 				<p>
-					Don't have an account yet?
-					<a href="new-account.html">Click here</a>
 					Sign in to take the test, save your information, and print
 					your results.
 				</p>
@@ -178,7 +174,18 @@
 				<br>
 				<p>Made by Hayden Crawford, Kylie Anderson, and Darren Funes</p>
 			</div>
-        </div>
+		</div>
+		<script language='javascript' type='text/javascript'>
+			function check(input) {
+				if (input.value != document.getElementById('password').value) {
+					input.setCustomValidity('Password Must be Matching.');
+				} else {
+					// input is valid -- reset the error message
+					input.setCustomValidity('');
+				}
+			}
+			
+		</script>
 
             
 	</body>
