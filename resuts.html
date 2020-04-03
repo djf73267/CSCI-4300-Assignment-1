@@ -7,7 +7,7 @@
 		<meta name="description" content="Programming Personality Profile">
         <meta name="keywords" content="test,quiz,personality,programming,programmer">
         <meta charset="UTF-8">
-
+		<script src="resuts.js"></script>
         <style>
             #container{
                 display:grid;
@@ -147,22 +147,7 @@
 				text-align:center;
 				color:#595959;
             }
-
-
         </style>
-
-        <script>
-            var max = localStorage.getItem("max");
-
-            window.onload = function(){
-                if(max != null){
-                     document.getElementById("result").innerHTML = "You got The " + max + "!";
-                }else{
-                     document.getElementById("result").innerHTML = "Take the test to find out your programmer personality.";
-                 }
-
-            }
-        </script>
     </head>
 
     <body>
@@ -195,7 +180,7 @@
             </div> 
 
             <div id="results">
-                <h2 id="result" style="color: red;"> </h3>
+                <h2 id="result" style="color: red;"> </h2>
                 <h3>Hover over the archetypes below to learn more about
                     your programmer personality. <br>Thanks for taking the quiz!
                 </h3>

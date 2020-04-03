@@ -7,7 +7,7 @@ window.onload = function(){
     document.getElementById("email").value = localStorage.getItem("email");
     document.getElementById("DOB").value = localStorage.getItem("DOB");
     if(this.localStorage.getItem("bool") != "signed_in"){
-        window.alert("You have not yet made a profile.");
+        window.alert("Please make a profile or sign in.");
 		window.location.replace("login.html");
     }
 }
