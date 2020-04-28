@@ -105,8 +105,7 @@ window.onload = function(){
 	registerNavBar();
     registerSideBar();
 	if(this.localStorage.getItem("bool") != "signed_in"){
-        window.alert("Please make a profile or sign in.");
-		window.location.replace("login.html");
+		window.location.replace("login.jsp");
     }
 }
 
@@ -127,26 +126,26 @@ function registerNavBar() {
 	}
 }
 function linkHome() {
-	window.location = "home.html";
+	window.location = "home.jsp";
 }
 function linkAbout() {
-	window.location = "about.html";
+	window.location = "about.jsp";
 }
 function linkLogin() {
-	window.location = "login.html";
+	window.location = "login.jsp";
 }
 function linkQuiz() {
-	window.location = "quiz.html";
+	window.location = "quiz.jsp";
 }
 function linkResuts() {
-	window.location = "resuts.html";
+	window.location = "resuts.jsp";
 }
 function linkProfile() {
-	window.location = "profile.html";
+	window.location = "profile.jsp";
 }
 function signOut() {
 	localStorage.clear();
-	window.location = "home.html";
+	window.location = "home.jsp";
 }
 
 function registerSideBar() {

@@ -1,11 +1,12 @@
+<%@page import = "java.sql.*"%>
 <!DOCTYPE HTML>
 <html lang="en" style="background-color:#e8e8e8;">
 	<head>
-		<title>About</title>
+		<title>Home Page</title>
 		<meta name="author" content="Hayden Crawford,Kylie Anderson,Darren Funes">
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
-		<script src="about.js"></script>
+		<script src="home.js"></script>
 		<style>
 			#container {
 				display:grid;
@@ -17,10 +18,6 @@
 				font-family:helvetica;
 				grid-gap:10px;
 				margin:10px;
-			}
-			#album {
-				display:inline;
-				text-align:center;
 			}
 			#logo {
 				grid-area:logo;
@@ -134,25 +131,16 @@
 			</div>
 			<div id="main">
 				<h2>
-					Our quiz sorts users into 4 main programmer archetypes.
+					Welcome to the Programming Personality Profile website!
+					<br>
 				</h2>
 				<p>
-				<br>
-					Are you the wild and unpredictable Code Cowboy?  The 
-					mysterious yet highly effective Ninja?  Perhaps you have the 
-					foresight and patience of a magician.  Or maybe your skills 
-					have made you a condescending yet sometimes necessary Ruler?
-					<br><br>
-					Whatever the case, everyone has their place on a programming team.
-					<a href="quiz.html">Take the quiz</a> and find out what yours is!
-					<br><br>
+					This project was developed by Hayden Crawford, Darren Funes,
+					and Kylie Anderson to create a fun classification system for 
+					programmers and programming students.<br><br>
+					<a href="login.jsp">Log in</a> and take the quiz to find out what <a href="about.jsp">
+					type of programmer</a> you are!
 				</p>
-				<div id = "album">
-					<img src="cowboy.jpg" alt="The Code Cowboy" width="20%" height="20%">
-					<img src="ninja.jpg" alt="The Ninja" width="20%" height="20%">
-					<img src="magician.jpg" alt="The Magician" width="20%" height="20%">
-					<img src="ruler.jpg" alt="The Ruler" width="20%" height="20%">
-				</div>
 			</div>
 			<div id="sidebar">
 				<h4>You are not currently signed in.<br></h4>

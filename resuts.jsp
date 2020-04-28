@@ -1,5 +1,5 @@
+<%@page import = "java.sql.*"%>
 <!DOCTYPE html>
-
 <html lang="en" style="background-color:#e8e8e8;">
     <head>
         <title>Results</title>
@@ -181,8 +181,8 @@
 
             <div id="results">
                 <h2 id="result" style="color: red;"> </h2>
-                <h3>Hover over the archetypes below to learn more about
-                    your programmer personality. <br>Thanks for taking the quiz!
+                <h3>Hover over the archetypes below to learn more the
+                    programmer personalities.
                 </h3>
             </div>
 
@@ -254,7 +254,4 @@
         </div>
 
     </body>
-
-
-
 </html>

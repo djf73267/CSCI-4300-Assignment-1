@@ -1,10 +1,6 @@
 
 window.onload = function(){
 	registerNavBar();
-    document.getElementById("submit").addEventListener("click", func_1);
-    if(this.localStorage.getItem("bool") == "signed_in"){
-        window.location.replace("about.html");
-    }
 }
 
 function registerNavBar() {
@@ -24,45 +20,37 @@ function registerNavBar() {
 	}
 }
 function linkHome() {
-	window.location = "home.html";
+	window.location = "home.jsp";
 }
 function linkAbout() {
-	window.location = "about.html";
+	window.location = "about.jsp";
 }
 function linkLogin() {
-	window.location = "login.html";
+	window.location = "login.jsp";
 }
 function linkQuiz() {
-	window.location = "quiz.html";
+	window.location = "quiz.jsp";
 }
 function linkResuts() {
-	window.location = "resuts.html";
+	window.location = "resuts.jsp";
 }
 function linkProfile() {
-	window.location = "profile.html";
+	window.location = "profile.jsp";
 }
 function signOut() {
 	localStorage.clear();
-	window.location = "home.html";
+	window.location = "home.jsp";
 }
 
-function func_1(){
+function register(){
    var n = document.getElementById("uname").value;
    var m = document.getElementById("password").value;
    var o = document.getElementById("password_confirm").value;
- 
-    if (n.length < 1 || m.length < 1 || o.length < 1)
-    {
-        window.alert("One or More Fields are Blank");
-    }
-	else if (m.localeCompare(o) != 0) {
-		window.alert("Passwords do not Match")
+	if (m.localeCompare(o) != 0) {
+		window.alert("Passwords do not Match");
 	}
     else {
-        localStorage.setItem("uname",n);
-        localStorage.setItem("password",m);
-        localStorage.setItem("password_confirm",o);
-		localStorage.setItem("bool","signed_in");
+        this.localStorage.setItem("bool", "signed_in");
     }
 }
 

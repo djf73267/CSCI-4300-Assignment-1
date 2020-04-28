@@ -1,4 +1,4 @@
-
+<%@page import = "java.sql.*"%>
 <!DOCTYPE HTML>
 <html lang="en" style="background-color:#e8e8e8;">
 	<head>
@@ -137,7 +137,7 @@
 				<h3>Complete the form below and click "Submit" when you are finished.</h3>
 				<br>
 
-				<form name="ppquiz" onsubmit="submitForm()" action="resuts.html" method="POST">
+				<form name="ppquiz" onsubmit="submitForm()" action="resuts.jsp" method="POST">
                     White space should be used: <br>
                     <input type="radio" id="1a" name="whitespace" value="a" required>
                     <label for="1a">Everywhere</label><br>

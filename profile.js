@@ -1,14 +1,12 @@
 window.onload = function(){
 	registerNavBar();
 	registerSideBar();
-    document.getElementById("submit").addEventListener("click", func_1);
     document.getElementById("first_name").value = localStorage.getItem("first_name");
     document.getElementById("last_name").value = localStorage.getItem("last_name");
     document.getElementById("email").value = localStorage.getItem("email");
     document.getElementById("DOB").value = localStorage.getItem("DOB");
     if(this.localStorage.getItem("bool") != "signed_in"){
-        window.alert("Please make a profile or sign in.");
-		window.location.replace("login.html");
+		window.location.replace("login.jsp");
     }
 }
 function registerNavBar() {
@@ -29,26 +27,26 @@ function registerNavBar() {
 }
 
 function linkHome() {
-	window.location = "home.html";
+	window.location = "home.jsp";
 }
 function linkAbout() {
-	window.location = "about.html";
+	window.location = "about.jsp";
 }
 function linkLogin() {
-	window.location = "login.html";
+	window.location = "login.jsp";
 }
 function linkQuiz() {
-	window.location = "quiz.html";
+	window.location = "quiz.jsp";
 }
 function linkResuts() {
-	window.location = "resuts.html";
+	window.location = "resuts.jsp";
 }
 function linkProfile() {
-	window.location = "profile.html";
+	window.location = "profile.jsp";
 }
 function signOut() {
 	localStorage.clear();
-	window.location = "home.html";
+	window.location = "home.jsp";
 }
 
 function registerSideBar() {
@@ -58,25 +56,14 @@ function registerSideBar() {
 	}
 }
 
-function func_1(){
+function update(){
    var n = document.getElementById("first_name").value;
    var m = document.getElementById("last_name").value;
    var o = document.getElementById("email").value; 
    var p = document.getElementById("DOB").value;
-  
-  
-    if (n.length < 1 || m.length < 1)
-    {
-        window.alert("Must Register First and Last Name");
-        return false;
-    }
-    else {
-        localStorage.setItem("first_name",n);
-        localStorage.setItem("last_name",m);
-        localStorage.setItem("email",o);
-        localStorage.setItem("DOB",p);
-
-       
-    }
+	localStorage.setItem("first_name",n);
+	localStorage.setItem("last_name",m);
+	localStorage.setItem("email",o);
+	localStorage.setItem("DOB",p);
 }
 
