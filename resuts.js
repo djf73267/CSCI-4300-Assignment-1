@@ -1,16 +1,16 @@
 var max = localStorage.getItem("max");
 
 window.onload = function(){
+	if(this.localStorage.getItem("bool") != "signed_in"){
+		window.location.replace("login.jsp");
+    }
 	registerNavBar();
     registerSideBar();
 	if(localStorage.getItem("max") != null){
 		 document.getElementById("result").innerHTML = "You got The " + localStorage.getItem("max") + "!";
 	}else{
 		 document.getElementById("result").innerHTML = "Take the test to find out your programmer personality.";
-	 }
-	if(this.localStorage.getItem("bool") != "signed_in"){
-		window.location.replace("login.jsp");
-    }
+	}
 }
 
 function registerNavBar() {

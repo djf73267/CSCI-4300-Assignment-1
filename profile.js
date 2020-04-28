@@ -1,13 +1,13 @@
 window.onload = function(){
+	if(this.localStorage.getItem("bool") != "signed_in"){
+		window.location.replace("login.jsp");
+    }
 	registerNavBar();
 	registerSideBar();
     document.getElementById("first_name").value = localStorage.getItem("first_name");
     document.getElementById("last_name").value = localStorage.getItem("last_name");
     document.getElementById("email").value = localStorage.getItem("email");
     document.getElementById("DOB").value = localStorage.getItem("DOB");
-    if(this.localStorage.getItem("bool") != "signed_in"){
-		window.location.replace("login.jsp");
-    }
 }
 function registerNavBar() {
 	document.getElementById("logo").onclick = linkHome;

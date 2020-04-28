@@ -102,11 +102,11 @@ function increment(temp){
 }
 
 window.onload = function(){
-	registerNavBar();
-    registerSideBar();
 	if(this.localStorage.getItem("bool") != "signed_in"){
 		window.location.replace("login.jsp");
     }
+	registerNavBar();
+    registerSideBar();
 }
 
 function registerNavBar() {
