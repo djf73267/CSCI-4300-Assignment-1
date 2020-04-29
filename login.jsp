@@ -2,8 +2,9 @@
 <!DOCTYPE HTML>
 <html lang="en" style="background-color:#e8e8e8;">
 	<head>
+		<meta charset="utf-8"/>
 		<title>Login Page</title>
-		<meta name="author" content="Hayden Crawford,Kylie Anderson,Darren Funes">
+		<meta name="author" content="Hayden Crawford,Kylie Anderson">
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
 		<style>
@@ -40,8 +41,7 @@
 			#logo:hover {
 				cursor:pointer;
 			}
-			#3P {
-			}
+			
 			#quiz {
 				margin-top:-63px;
 			}
@@ -153,9 +153,11 @@
 					<form onsubmit="login()" method="POST">
 						<label for="uname_login"><b>Username</b></label>
 						<input type="text" placeholder="Enter Username" name="uname_login" required id = "uname_login" pattern = "[A-Za-z0-9]{6,}"
+						
 						title = "6 or more characters with no punctuation" maxlength = "16">
 						<label for="password"><b>Password</b></label>
-						<input type="password" placeholder="Enter Password" required name="password" id = "password" pattern = "[A-Za-z0-9]{8,}"
+						<input type="password" placeholder="Enter Password" required name="pass" id = "password" pattern = "[A-Za-z0-9]{8,}"
+						
 						title = "8 or more characters with no punctuation" maxlength = "16">
 						<button id = "submit">Login</button>
 					</form>
@@ -168,6 +170,35 @@
 			
 			</div>
         </div>
+
+			<%
+		String username = request.getParameter("uname_login"); 
+		String password = request.getParameter("pass");
+		
+		String query1 = "SELECT username, password FROM account WHERE username= ? AND password= ?";
+		//String query2 = "SELECT * FROM n"; 
+		
+		try{
+			String dbURL = "jdbc:mysql://localhost:3306/user?serverTimezone=UTC";
+			Connection connection = DriverManager.getConnection(dbURL, "root", "");	
+			//out.println("Database successfully opened");
+			PreparedStatement pstmt = connection.prepareStatement(query1);
+			pstmt.setString(1, username);
+			pstmt.setString(2, password);
+
+			ResultSet rs = pstmt.executeQuery(query1);
+		
+			if(rs.next())
+                out.println("Valid Login.");
+            else
+                out.println("Invalid login credentials");
+			connection.close();
+			
+		}catch(SQLException e){
+				out.println("SQLEception caught: " + e.getMessage());
+		}
+
+		%>
             
 	</body>
 </html>

@@ -2,12 +2,12 @@
 <!DOCTYPE HTML>
 <html lang="en" style="background-color:#e8e8e8;">
 	<head>
-		<title>Home Page</title>
+		<title>About</title>
 		<meta charset="utf-8"/>
 		<meta name="author" content="Hayden Crawford,Kylie Anderson">
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
-		<script src="home.js"></script>
+		<script src="index.js"></script>
 		<style>
 			#container {
 				display:grid;
@@ -20,6 +20,10 @@
 				grid-gap:10px;
 				margin:10px;
 			}
+			#album {
+				display:inline;
+				text-align:center;
+			}
 			#logo {
 				grid-area:logo;
 				text-align:center;
@@ -31,7 +35,6 @@
 			#logo:hover {
 				cursor:pointer;
 			}
-			
 			#quiz {
 				margin-top:-63px;
 			}
@@ -131,16 +134,25 @@
 			</div>
 			<div id="main">
 				<h2>
-					Welcome to the Programming Personality Profile website!
-					<br>
+					Our quiz sorts users into 4 main programmer archetypes.
 				</h2>
 				<p>
-					This project was developed by Hayden Crawford, Darren Funes,
-					and Kylie Anderson to create a fun classification system for 
-					programmers and programming students.<br><br>
-					<a href="login.jsp">Log in</a> and take the quiz to find out what <a href="index.jsp">
-					type of programmer</a> you are!
+				<br>
+					Are you the wild and unpredictable Code Cowboy?  The 
+					mysterious yet highly effective Ninja?  Perhaps you have the 
+					foresight and patience of a magician.  Or maybe your skills 
+					have made you a condescending yet sometimes necessary Ruler?
+					<br><br>
+					Whatever the case, everyone has their place on a programming team.
+					<a href="quiz.jsp">Take the quiz</a> and find out what yours is!
+					<br><br>
 				</p>
+				<div id = "album">
+					<img src="cowboy.jpg" alt="The Code Cowboy" width="150" height="150">
+					<img src="ninja.jpg" alt="The Ninja" width="150" height="150">
+					<img src="magician.jpg" alt="The Magician" width="150" height="150">
+					<img src="ruler.jpg" alt="The Ruler" width="150" height="150">
+				</div>
 			</div>
 			<div id="sidebar">
 				<h4>You are not currently signed in.<br></h4>
