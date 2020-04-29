@@ -3,7 +3,8 @@
 <html lang="en" style="background-color:#e8e8e8;">
 	<head>
 		<title>Registration Page</title>
-		<meta name="author" content="Hayden Crawford,Kylie Anderson,Darren Funes">
+		<meta charset="utf-8"/>
+		<meta name="author" content="Hayden Crawford,Kylie Anderson">
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
 		<style>
@@ -40,8 +41,7 @@
 			#logo:hover {
 				cursor:pointer;
 			}
-			#3P {
-			}
+			
 			#quiz {
 				margin-top:-63px;
 			}
@@ -150,20 +150,62 @@
 			</div>
 			<div id="main">
                 <form onsubmit="register()" method="POST">
-                    <div class="login">
+                     <div class="login">
                         <label for="uname"><b>Username</b></label>
-						<input type="text" placeholder="Enter Username" required name="uname" id = "uname" pattern = "[A-Za-z0-9]{6,}"
-						title = "6 or more characters with no punctuation" maxlength = "16">
-                        <label for="psw"><b>Password</b></label>
-						<input name = "password" type="password" placeholder="Enter Password" required id = "password" pattern = "[A-Za-z0-9]{8,}"
-						title = "8 or more characters with no punctuation" maxlength = "16">
-						<label for="psw"><b>Re-Enter</b></label>
-						<input name = "password_confirm" type="password" placeholder="Re-Enter Password" required name="psw" id = "password_confirm" pattern = "[A-Za-z0-9]{8,}"
-						title = "8 or more characters with no punctuation" maxlength = "16">
+						<input type="text" placeholder="Enter Username" required name="uname" id = "uname">
+                        
+						<label for="password"><b>Password</b></label>
+						<input name = "password" type="password" placeholder="Enter Password" required id = "password">
+						
+						<label for="password_confirm"><b>Re-Enter</b></label>
+						<input name = "password_confirm" type="password" placeholder="Re-Enter Password" required id = "password_confirm" oninput="check(this)">
+						
 						<button type="submit" id = "submit">Register</button>
+						
                     </div>
                 </form>
 			</div>
 		</div>
+
+
+		<%
+		String username = request.getParameter("uname"); 
+		String password = request.getParameter("password");
+		
+		String query1 = "SELECT * FROM account;";
+		String query2 = "INSERT INTO account(username, password) VALUES(?,?);"; 
+		
+		try{
+			String dbURL = "jdbc:mysql://localhost:3306/user?serverTimezone=UTC";
+			Connection connection = DriverManager.getConnection(dbURL, "root", "");	
+			//out.println("Database successfully opened");
+			PreparedStatement pstmt = connection.prepareStatement(query2);
+			pstmt.setString(1, username);
+			pstmt.setString(2, password);
+
+			int r = pstmt.executeUpdate();
+			//ResultSet rs = pstmt.executeQuery(query1);
+			
+			//while(rs.next())
+			//	out.print(rs.getString(2) + "\t" + rs.getString(3));
+
+			connection.close();
+			out.print("Account created successfully!");
+			
+		}catch(SQLException e){
+			//out.println("SQLEception caught: " + e.getErrorCode());
+			int error = e.getErrorCode();
+			
+			if(error == 1062){
+				out.print("This username already exists. Please choose a unique username.");
+			}if(error == 1048){
+
+			}else{
+				out.println("SQLEception caught: " + e.getMessage());
+			}
+		}
+
+		%>
+
 	</body>
 </html>

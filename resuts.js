@@ -33,7 +33,7 @@ function linkHome() {
 	window.location = "home.jsp";
 }
 function linkAbout() {
-	window.location = "about.jsp";
+	window.location = "index.jsp";
 }
 function linkLogin() {
 	window.location = "login.jsp";

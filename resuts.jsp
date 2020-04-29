@@ -3,7 +3,7 @@
 <html lang="en" style="background-color:#e8e8e8;">
     <head>
         <title>Results</title>
-        <meta name="author" content="Hayden Crawford,Kylie Anderson,Darren Funes">
+        <meta name="author" content="Hayden Crawford,Kylie Anderson">
 		<meta name="description" content="Programming Personality Profile">
         <meta name="keywords" content="test,quiz,personality,programming,programmer">
         <meta charset="UTF-8">
@@ -248,7 +248,7 @@
 			<div id="footer">
 				<hr>
 				<br>
-				<p>Made by Hayden Crawford, Kylie Anderson, and Darren Funes</p>
+				<p>Made by Hayden Crawford and Kylie Anderson</p>
             </div>
             
         </div>

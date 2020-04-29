@@ -3,7 +3,8 @@
 <html lang="en" style="background-color:#e8e8e8;">
 	<head>
 		<title>Profile Page</title>
-		<meta name="author" content="Hayden Crawford,Kylie Anderson,Darren Funes">
+		<meta charset="utf-8"/>
+		<meta name="author" content="Hayden Crawford,Kylie Anderson">
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
 		<style>
@@ -40,8 +41,7 @@
 			#logo:hover {
 				cursor:default;
 			}
-			#3P {
-			}
+			
 			#quiz {
 				margin-top:-63px;
 			}
@@ -150,18 +150,19 @@
 			</div>
 			<div id="main">
                 <form onsubmit="update()" method="POST">
-                    <div class="profile">
-                        <label for="First-Name"><b>First Name</b></label>
-                        <input type="first-name" placeholder="Enter First Name" name="First-Name" id = "first_name">
-                        <label for="Last-Name"><b>Last Name</b></label>
-                        <input type="last-name" placeholder="Enter Last Name" name="Last-Name" id = "last_name">
-                        <label for="DOB"><b>Date of Birth</b></label><br>
-                        <input type="date" placeholder="Enter Date of Birth" name="DOB" id = "DOB"><br>
+                     <div class="profile">
+                        <label><b>First Name</b></label>
+						<input type="text" placeholder="Enter First Name" name="FirstName" required id = "first_name">
+                        <label><b>Last Name</b></label>
+                        <input type="text" placeholder="Enter Last Name" name="LastName" required id = "last_name">
+			
+						<label><b>Date of Birth</b></label>
+                        <input type="date" name="DOB" required id = "DOB"><br>
                         <br>
-                        <label for="EMAIL"><b>Email</b></label>
-                        <input type="email" placeholder="Enter Email" name="EMAIL" id = "email" pattern = "/\S+@\S+\.\S+/"
-						title = "Please enter a valid Email address">
+                        <label><b>Email</b></label>
+                        <input type="email" placeholder="Enter Email" name="EMAIL" required id = "email">
                         <button type = "submit" id = "submit">Update</button>
+                       
                     </div>
                 </form>
 			</div>
@@ -177,7 +178,7 @@
 			<div id="footer">
 				<hr>
 				<br>
-				<p>Made by Hayden Crawford, Kylie Anderson, and Darren Funes</p>
+				<p>Made by Hayden Crawford and Kylie Anderson</p>
 			</div>
         </div>
 
