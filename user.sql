@@ -24,8 +24,14 @@ CREATE TABLE prof(
     dob VARCHAR(8) NOT NULL
 )ENGINE=InnoDB;
 
+DROP TABLE IF EXISTS ppp;
 CREATE TABLE ppp(
-	ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT
+	username VARCHAR(16) PRIMARY KEY,
+    personality enum('Code Cowboy', 'The Ninja', 'The Magician', 'The Ruler'),
+    taken TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO ppp(username, personality) VALUES('Kylie', 1);
+SELECT * FROM ppp;
 
 show databases;
