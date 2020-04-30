@@ -8,7 +8,6 @@
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
 		<style>
-
             /* Full-width input fields */
             input[type=text], input[type=password] {
             width: 100%;
@@ -116,7 +115,62 @@
                 padding-top: 16px;
                 }
 		</style>
-		<script src = "new-account.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				registerNavBar();
+			}
+
+			function registerNavBar() {
+				document.getElementById("logo").onclick = linkHome;
+				var divs = document.getElementById("navbar").children;
+				divs[0].onclick = linkAbout;
+				divs[1].onclick = linkLogin;
+				if(<%= session.getAttribute("logged_in") %>){
+					divs[1].children[0].innerHTML = "Sign Out";
+					divs[1].onclick = signOut;
+					divs[2].setAttribute("class", "item");
+					divs[2].onclick = linkQuiz;
+					divs[3].setAttribute("class", "item");
+					divs[3].onclick = linkResuts;
+					divs[4].setAttribute("class", "item");
+					divs[4].onclick = linkProfile;
+				}
+			}
+			function linkHome() {
+				window.location = "home.jsp";
+			}
+			function linkAbout() {
+				window.location = "index.jsp";
+			}
+			function linkLogin() {
+				window.location = "login.jsp";
+			}
+			function linkQuiz() {
+				window.location = "quiz.jsp";
+			}
+			function linkResuts() {
+				window.location = "resuts.jsp";
+			}
+			function linkProfile() {
+				window.location = "profile.jsp";
+			}
+			function signOut() {
+				window.location = "sign-out.jsp";
+			}
+
+			function register(){
+			   var n = document.getElementById("uname").value;
+			   var m = document.getElementById("password").value;
+			   var o = document.getElementById("password_confirm").value;
+				if (m.localeCompare(o) != 0) {
+					window.alert("Passwords do not Match");
+					return false;
+				}
+				else{
+					return true;
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div id="container">
@@ -149,16 +203,20 @@
 				</div>
 			</div>
 			<div id="main">
-                <form onsubmit="register()" method="POST">
+                <form name="registration" onsubmit="return register()" method="POST"
+				action = "new-account-register.jsp">
                      <div class="login">
                         <label for="uname"><b>Username</b></label>
-						<input type="text" placeholder="Enter Username" required name="uname" id = "uname">
+						<input type="text" placeholder="Enter Username" required name="uname" id = "uname" pattern = "[A-Za-z0-9]{6,}"
+						title = "6 or more characters with no punctuation" maxlength = "16">
                         
 						<label for="password"><b>Password</b></label>
-						<input name = "password" type="password" placeholder="Enter Password" required id = "password">
+						<input name = "password" type="password" placeholder="Enter Password" required id = "password" pattern = "[A-Za-z0-9]{8,}"
+						title = "8 or more characters with no punctuation" maxlength = "16">
 						
-						<label for="password_confirm"><b>Re-Enter</b></label>
-						<input name = "password_confirm" type="password" placeholder="Re-Enter Password" required id = "password_confirm" oninput="check(this)">
+						<label for="password_confirm"><b>Re-Enter Password</b></label>
+						<input name = "password_confirm" type="password" placeholder="Re-Enter Password" required id = "password_confirm" pattern = "[A-Za-z0-9]{8,}"
+						title = "6 or more characters with no punctuation" maxlength = "16">
 						
 						<button type="submit" id = "submit">Register</button>
 						
@@ -166,46 +224,5 @@
                 </form>
 			</div>
 		</div>
-
-
-		<%
-		String username = request.getParameter("uname"); 
-		String password = request.getParameter("password");
-		
-		String query1 = "SELECT * FROM account;";
-		String query2 = "INSERT INTO account(username, password) VALUES(?,?);"; 
-		
-		try{
-			String dbURL = "jdbc:mysql://localhost:3306/user?serverTimezone=UTC";
-			Connection connection = DriverManager.getConnection(dbURL, "root", "");	
-			//out.println("Database successfully opened");
-			PreparedStatement pstmt = connection.prepareStatement(query2);
-			pstmt.setString(1, username);
-			pstmt.setString(2, password);
-
-			int r = pstmt.executeUpdate();
-			//ResultSet rs = pstmt.executeQuery(query1);
-			
-			//while(rs.next())
-			//	out.print(rs.getString(2) + "\t" + rs.getString(3));
-
-			connection.close();
-			out.print("Account created successfully!");
-			
-		}catch(SQLException e){
-			//out.println("SQLEception caught: " + e.getErrorCode());
-			int error = e.getErrorCode();
-			
-			if(error == 1062){
-				out.print("This username already exists. Please choose a unique username.");
-			}if(error == 1048){
-
-			}else{
-				out.println("SQLEception caught: " + e.getMessage());
-			}
-		}
-
-		%>
-
 	</body>
 </html>

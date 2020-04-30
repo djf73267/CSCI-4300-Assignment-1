@@ -116,7 +116,53 @@
                 padding-top: 16px;
                 }
 		</style>
-		<script src="login.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				registerNavBar();
+			}
+
+			function registerNavBar() {
+				document.getElementById("logo").onclick = linkHome;
+				var divs = document.getElementById("navbar").children;
+				divs[0].onclick = linkAbout;
+				divs[1].onclick = linkLogin;
+				if(<%= session.getAttribute("logged_in") %>){
+					divs[1].children[0].innerHTML = "Sign Out";
+					divs[1].onclick = signOut;
+					divs[2].setAttribute("class", "item");
+					divs[2].onclick = linkQuiz;
+					divs[3].setAttribute("class", "item");
+					divs[3].onclick = linkResuts;
+					divs[4].setAttribute("class", "item");
+					divs[4].onclick = linkProfile;
+				}
+			}
+			function linkHome() {
+				window.location = "home.jsp";
+			}
+			function linkAbout() {
+				window.location = "index.jsp";
+			}
+			function linkLogin() {
+				window.location = "login.jsp";
+			}
+			function linkQuiz() {
+				window.location = "quiz.jsp";
+			}
+			function linkResuts() {
+				window.location = "resuts.jsp";
+			}
+			function linkProfile() {
+				window.location = "profile.jsp";
+			}
+			function signOut() {
+				window.location = "sign-out.jsp";
+			}
+
+			function login(){
+				return true;
+			}
+		</script>
 	</head>
 	<body>
 		<div id="container">
@@ -150,7 +196,7 @@
 			</div>
 			<div id="main">
 				<div class="login">
-					<form onsubmit="login()" method="POST">
+					<form onsubmit="return login()" method="POST" action="login-register.jsp">
 						<label for="uname_login"><b>Username</b></label>
 						<input type="text" placeholder="Enter Username" name="uname_login" required id = "uname_login" pattern = "[A-Za-z0-9]{6,}"
 						
@@ -170,35 +216,5 @@
 			
 			</div>
         </div>
-
-			<%
-		String username = request.getParameter("uname_login"); 
-		String password = request.getParameter("pass");
-		
-		String query1 = "SELECT username, password FROM account WHERE username= ? AND password= ?";
-		//String query2 = "SELECT * FROM n"; 
-		
-		try{
-			String dbURL = "jdbc:mysql://localhost:3306/user?serverTimezone=UTC";
-			Connection connection = DriverManager.getConnection(dbURL, "root", "");	
-			//out.println("Database successfully opened");
-			PreparedStatement pstmt = connection.prepareStatement(query1);
-			pstmt.setString(1, username);
-			pstmt.setString(2, password);
-
-			ResultSet rs = pstmt.executeQuery(query1);
-		
-			if(rs.next())
-                out.println("Valid Login.");
-            else
-                out.println("Invalid login credentials");
-			connection.close();
-			
-		}catch(SQLException e){
-				out.println("SQLEception caught: " + e.getMessage());
-		}
-
-		%>
-            
 	</body>
 </html>

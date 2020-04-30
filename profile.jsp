@@ -8,7 +8,6 @@
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
 		<style>
-
             /* Full-width input fields */
             input[type=first-name], input[type=last-name], input[type=dob], input[type=email] {
             width: 100%;
@@ -116,7 +115,74 @@
                 padding-top: 16px;
                 }
         </style>
-         <script src="profile.js"></script>
+         <script type="text/javascript">
+			window.onload = function(){
+				if(!<%= session.getAttribute("logged_in") %>){
+					window.location.replace("login.jsp");
+				}
+				registerNavBar();
+				registerSideBar();
+				document.getElementById("first_name").value = localStorage.getItem("first_name");
+				document.getElementById("last_name").value = localStorage.getItem("last_name");
+				document.getElementById("email").value = localStorage.getItem("email");
+				document.getElementById("DOB").value = localStorage.getItem("DOB");
+			}
+			function registerNavBar() {
+				document.getElementById("logo").onclick = linkHome;
+				var divs = document.getElementById("navbar").children;
+				divs[0].onclick = linkAbout;
+				divs[1].onclick = linkLogin;
+				if(<%= session.getAttribute("logged_in") %>){
+					divs[1].children[0].innerHTML = "Sign Out";
+					divs[1].onclick = signOut;
+					divs[2].setAttribute("class", "item");
+					divs[2].onclick = linkQuiz;
+					divs[3].setAttribute("class", "item");
+					divs[3].onclick = linkResuts;
+					divs[4].setAttribute("class", "item");
+					divs[4].onclick = linkProfile;
+				}
+			}
+
+			function linkHome() {
+				window.location = "home.jsp";
+			}
+			function linkAbout() {
+				window.location = "index.jsp";
+			}
+			function linkLogin() {
+				window.location = "login.jsp";
+			}
+			function linkQuiz() {
+				window.location = "quiz.jsp";
+			}
+			function linkResuts() {
+				window.location = "resuts.jsp";
+			}
+			function linkProfile() {
+				window.location = "profile.jsp";
+			}
+			function signOut() {
+				window.location = "sign-out.jsp";
+			}
+			function registerSideBar() {
+				if(<%= session.getAttribute("logged_in") %>){
+					document.getElementById("sidebar").innerHTML =
+					"<h4>You are now signed in as " + "<%= session.getAttribute("current_username") %>" + "." + "</h4>";
+				}
+			}
+
+			function update(){
+			   var n = document.getElementById("first_name").value;
+			   var m = document.getElementById("last_name").value;
+			   var o = document.getElementById("email").value; 
+			   var p = document.getElementById("DOB").value;
+				localStorage.setItem("first_name",n);
+				localStorage.setItem("last_name",m);
+				localStorage.setItem("email",o);
+				localStorage.setItem("DOB",p);
+			}
+		 </script>
 	</head>
 	<body>
 		<div id="container">
@@ -152,16 +218,18 @@
                 <form onsubmit="update()" method="POST">
                      <div class="profile">
                         <label><b>First Name</b></label>
-						<input type="text" placeholder="Enter First Name" name="FirstName" required id = "first_name">
+						<input type="text" placeholder="Enter First Name" name="FirstName" required id = "first_name"
+						maxlength = "16">
                         <label><b>Last Name</b></label>
-                        <input type="text" placeholder="Enter Last Name" name="LastName" required id = "last_name">
+                        <input type="text" placeholder="Enter Last Name" name="LastName" required id = "last_name"
+						maxlength = "16">
 			
 						<label><b>Date of Birth</b></label>
                         <input type="date" name="DOB" required id = "DOB"><br>
                         <br>
                         <label><b>Email</b></label>
                         <input type="email" placeholder="Enter Email" name="EMAIL" required id = "email">
-                        <button type = "submit" id = "submit">Update</button>
+                        <button type = "submit" id = "submit" maxlength = "32">Update</button>
                        
                     </div>
                 </form>
