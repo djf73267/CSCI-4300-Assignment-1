@@ -101,7 +101,7 @@
 			}
 		</style>
 		<script type="text/javascript">
-			var a = 0;
+			/*var a = 0;
 			var b = 0;
 			var c = 0;
 			var d = 0;
@@ -189,6 +189,13 @@
 					max = "Code Cowboy";
 				}
 				localStorage.setItem("max", max);
+				
+
+				var ch = document.forms["ppquiz"]["change"];
+				ch.setAttribute('value', max);
+				//alert("Value: " + ch.value);
+
+				
 			}
 
 			function increment(temp){
@@ -203,7 +210,7 @@
 					d++;
 				}
 			}
-
+*/
 			window.onload = function(){
 				if(!<%= session.getAttribute("logged_in") %>){
 					window.location.replace("login.jsp");
@@ -291,7 +298,7 @@
 				<h3>Complete the form below and click "Submit" when you are finished.</h3>
 				<br>
 
-				<form name="ppquiz" onsubmit="submitForm()" action="resuts.jsp" method="POST">
+				<form name="ppquiz" action="register-quiz-results.jsp" method="POST">
                     White space should be used: <br>
                     <input type="radio" id="1a" name="whitespace" value="a" required>
                     <label for="1a">Everywhere</label><br>
@@ -404,7 +411,7 @@
                     <input type="radio" id="11d" name="because" value="d">
                     <label for="11d">I'm good at it. I've been coding for a long time.</label><br><br><br>
 
-
+					<input type="hidden" id="change" name="change" value="hidden">
 					<input type="submit" value="Submit" >
 					
                 </form>
