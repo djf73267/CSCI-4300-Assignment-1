@@ -216,8 +216,9 @@
                         <input type="date" name="DOB" required id = "DOB"><br>
                         <br>
                         <label><b>Email</b></label>
-                        <input type="email" placeholder="Enter Email" name="EMAIL" required id = "email">
-                        <button type = "submit" id = "submit" maxlength = "32">Update</button>
+                        <input type="email" placeholder="Enter Email" name="EMAIL" required id = "email"
+						maxlength = "32">
+                        <button type = "submit" id = "submit">Update</button>
                     </div>
                 </form>
 				<p>This portion of the project was never fully implemented as
