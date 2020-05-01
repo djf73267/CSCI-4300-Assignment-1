@@ -220,7 +220,8 @@
                         <button type = "submit" id = "submit" maxlength = "32">Update</button>
                     </div>
                 </form>
-				<p>This portion of the project has not been fully implemented.</p>
+				<p>This portion of the project was never fully implemented as
+				we lost our third member.</p>
 			</div>
 			<div id="sidebar">
 				<h4>You are not currently signed in.<br></h4>

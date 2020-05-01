@@ -16,7 +16,7 @@
 			
 			try{
 				String dbURL = "jdbc:mysql://localhost:3306/usr";
-				Connection connection = DriverManager.getConnection(dbURL, "root", "M6fe1b60gfpj57ne");	
+				Connection connection = DriverManager.getConnection(dbURL, "root", "");	
 				PreparedStatement pstmt = connection.prepareStatement(query1);
 				pstmt.setString(1, username);
 				pstmt.setString(2, password);

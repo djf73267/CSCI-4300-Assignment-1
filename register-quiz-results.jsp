@@ -137,7 +137,7 @@
 			
 			try{
 				String dbURL = "jdbc:mysql://localhost:3306/usr?serverTimezone=UTC";
-				Connection connection = DriverManager.getConnection(dbURL, "root", "M6fe1b60gfpj57ne");
+				Connection connection = DriverManager.getConnection(dbURL, "root", "");
 				String query = "REPLACE INTO ppp(username, personality) VALUES (?, ?);";
 				PreparedStatement pstmt = connection.prepareStatement(query);
 				pstmt.setString(1, (String)session.getAttribute("current_username"));

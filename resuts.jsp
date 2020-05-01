@@ -160,7 +160,7 @@
 				String personality = "";
 			try{
 				String dbURL = "jdbc:mysql://localhost:3306/usr?serverTimezone=UTC";
-				Connection connection = DriverManager.getConnection(dbURL, "root", "M6fe1b60gfpj57ne");
+				Connection connection = DriverManager.getConnection(dbURL, "root", "");
 				String query = "SELECT personality FROM ppp WHERE username = ?;";
 				PreparedStatement pstmt = connection.prepareStatement(query);
 				pstmt.setString(1, (String)session.getAttribute("current_username"));
