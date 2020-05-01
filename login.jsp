@@ -116,7 +116,7 @@
                 padding-top: 16px;
                 }
 		</style>
-		<script type="text/javascript">
+		<script>
 			window.onload = function(){
 				registerNavBar();
 			}

@@ -3,7 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<script type = "text/javascript">
+		<script>
 			<%
 			session.removeAttribute("logged_in");
 			session.removeAttribute("current_username");

@@ -97,7 +97,7 @@
 				color:#595959;
 			}
 		</style>
-		<script type = "text/javascript">
+		<script>
 			window.onload = function(){
 				registerNavBar();
 				registerSideBar();

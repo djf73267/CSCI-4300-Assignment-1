@@ -3,13 +3,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<script type = "text/javascript">
+		<script>
 			<%
 			String username = request.getParameter("uname_login"); 
 			String password = request.getParameter("pass");
 			
 			String query1 = "SELECT username, pass FROM acc WHERE username=? AND pass=?;";
-			//String query2 = "SELECT * FROM n"; 
 			
 			boolean nonmatch = false;
 			boolean logged_in = false;

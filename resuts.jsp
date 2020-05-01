@@ -1,5 +1,5 @@
 <%@page import = "java.sql.*"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en" style="background-color:#e8e8e8;">
     <head>
         <title>Results</title>
@@ -147,17 +147,34 @@
 				color:#595959;
             }
         </style>
-		<script type="text/javascript">
-			var max = localStorage.getItem("max");
-
+		<script>
 			window.onload = function(){
 				if(!<%= session.getAttribute("logged_in") %>){
 					window.location.replace("login.jsp");
 				}
 				registerNavBar();
 				registerSideBar();
-				if(localStorage.getItem("max") != null){
-					 document.getElementById("result").innerHTML = "You got The " + localStorage.getItem("max") + "!";
+			<%
+				boolean exists = false;
+				boolean noconnection = false;
+				String personality = "";
+			try{
+				String dbURL = "jdbc:mysql://localhost:3306/usr?serverTimezone=UTC";
+				Connection connection = DriverManager.getConnection(dbURL, "root", "M6fe1b60gfpj57ne");
+				String query = "SELECT personality FROM ppp WHERE username = ?;";
+				PreparedStatement pstmt = connection.prepareStatement(query);
+				pstmt.setString(1, (String)session.getAttribute("current_username"));
+				ResultSet rs = pstmt.executeQuery();
+				exists = rs.next();
+				if (exists) {
+					personality = rs.getString("personality");
+				}
+			} catch(SQLException e) {
+				
+			}
+			%>
+				if(<%=exists%>){
+					 document.getElementById("result").innerHTML = "You got " + "<%=personality%>" + "!";
 				}else{
 					 document.getElementById("result").innerHTML = "Take the test to find out your programmer personality.";
 				}

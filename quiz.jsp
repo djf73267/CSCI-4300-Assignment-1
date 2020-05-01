@@ -1,5 +1,5 @@
 <%@page import = "java.sql.*"%>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" style="background-color:#e8e8e8;">
 	<head>
 		<title>Quiz</title>
@@ -100,117 +100,7 @@
 				color:#595959;
 			}
 		</style>
-		<script type="text/javascript">
-			/*var a = 0;
-			var b = 0;
-			var c = 0;
-			var d = 0;
-			var max = null;
-
-			function submitForm(){
-				var temp = document.forms["ppquiz"]["whitespace"].value;
-				if(temp == "a"){
-					a++;
-					c++;
-				}else{
-					b++;
-					d++;
-				}
-
-				temp = document.forms["ppquiz"]["group"].value;
-				if(temp == "a"){
-					a++;
-					b++;
-				}else{
-					c++;
-					d++;
-				}
-
-				temp = document.forms["ppquiz"]["plan"].value;
-				if(temp == "a"){
-					a++;
-					b++;
-				}else{
-					c++;
-					d++;
-				}
-
-				temp = document.forms["ppquiz"]["speak"].value;
-				if(temp == "a"){
-					a++;
-					d++;
-				}else{
-					b++;
-					c++;
-				}
-
-				temp = document.forms["ppquiz"]["text"].value;
-				if(temp == "a"){
-					b++;
-				}else{
-					a++;
-					c++;
-					d++;
-				}
-
-
-				temp = document.forms["ppquiz"]["drink"].value;
-				increment(temp);
-
-				temp = document.forms["ppquiz"]["lang"].value;
-				increment(temp);
-
-				temp = document.forms["ppquiz"]["comments"].value;
-				increment(temp);
-
-				temp = document.forms["ppquiz"]["start"].value;
-				increment(temp);
-
-				temp = document.forms["ppquiz"]["stuck"].value;
-				increment(temp);
-
-				temp = document.forms["ppquiz"]["priority"].value;
-				increment(temp);
-				increment(temp);
-
-				temp = document.forms["ppquiz"]["because"].value;
-				increment(temp);
-
-				
-				if(a > b && a > c && a > d){
-					max = "Code Cowboy";
-				}else if(b > a && b > c && b > d){
-					max = "Ninja";
-				}else if(c > a && c > b && c > d){
-					max = "Magician";
-				}else if(d > a && d > b && d > c){
-					max = "Ruler";
-				}else{
-					max = "Code Cowboy";
-				}
-				localStorage.setItem("max", max);
-				
-
-				var ch = document.forms["ppquiz"]["change"];
-				ch.setAttribute('value', max);
-				//alert("Value: " + ch.value);
-
-				
-			}
-
-			function increment(temp){
-
-				if(temp == "a"){
-					a++;
-				}else if(temp == "b"){
-					b++;
-				}else if(temp == "c"){
-					c++;
-				}else{
-					d++;
-				}
-			}
-*/
+		<script>
 			window.onload = function(){
 				if(!<%= session.getAttribute("logged_in") %>){
 					window.location.replace("login.jsp");

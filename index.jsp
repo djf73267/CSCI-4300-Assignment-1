@@ -7,7 +7,7 @@
 		<meta name="author" content="Hayden Crawford,Kylie Anderson">
 		<meta name="description" content="Programming Personality Profile">
 		<meta name="keywords" content="test,quiz,personality,programming,programmer">
-		<script type = "text/javascript">
+		<script>
 			window.onload = function(){
 				registerNavBar();
 				registerSideBar();

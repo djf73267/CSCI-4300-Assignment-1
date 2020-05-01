@@ -3,12 +3,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<script type = "text/javascript">
+		<script>
 			<%
-
 			int a=0, b=0, c=0, d=0;
-
+			boolean noconnection = false;
                 String temp = request.getParameter("whitespace");
+				String errormessage = "";
 				if(temp.equals("a")){
 					a++;
 					c++;
@@ -122,54 +122,44 @@
 				}else{
 					d++;
 				}
-				int enum_index;
+				String personality = "";
 				if(a > b && a > c && a > d){
-					enum_index = 0;
+					personality = "Code Cowboy";
 				}else if(b > a && b > c && b > d){
-					enum_index = 1;
+					personality = "The Ninja";
 				}else if(c > a && c > b && c > d){
-					enum_index = 2;
+					personality = "The Magician";
 				}else if(d > a && d > b && d > c){
-					enum_index = 3;
+					personality = "The Ruler";
 				}else{
-					enum_index = 0;
+					personality = "Code Cowboy";
 				}
-
-
-				//localStorage.setItem("max", max);
-				
-			/*
 			
-
 			try{
 				String dbURL = "jdbc:mysql://localhost:3306/usr?serverTimezone=UTC";
-				Connection connection = DriverManager.getConnection(dbURL, "root", "5051847Ka!");	
-				PreparedStatement pstmt = connection.prepareStatement(query2);
-				
+				Connection connection = DriverManager.getConnection(dbURL, "root", "M6fe1b60gfpj57ne");
+				String query = "REPLACE INTO ppp(username, personality) VALUES (?, ?);";
+				PreparedStatement pstmt = connection.prepareStatement(query);
+				pstmt.setString(1, (String)session.getAttribute("current_username"));
+				pstmt.setString(2, personality);
+				pstmt.executeUpdate();
 				connection.close();
 			}catch(SQLException e){
-				int error = e.getErrorCode();
-				if(error == 1062){
-
-				} else {
-					errormessage = e.getMessage();
-				}
+				noconnection = true;
+				errormessage = e.getMessage();
 			}
-*/
 			%>
 			
             window.onload = function(){
-		
+				if (<%=noconnection%>) {
+					window.alert("<%=errormessage%>");
+					window.location.replace("quiz.jsp");
+				} else {
+					window.location.replace("resuts.jsp");
+				}
 			}
 		</script>
 	</head>
 	<body>
-
-    <%
-    out.print(a + " ");
-    out.print(b + " ");
-	out.print("enum index: " + enum_index);
-
-    %>
 	</body>
 </html>

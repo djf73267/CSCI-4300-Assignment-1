@@ -3,7 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<script type = "text/javascript">
+		<script>
 			<%
 			boolean logged_in = false;
 			boolean baduser = false;
@@ -11,7 +11,6 @@
 			String password = request.getParameter("password");
 			String errormessage = "";
 			
-			String query1 = "SELECT * FROM acc;";
 			String query2 = "INSERT INTO acc(username, pass) VALUES(?,?);"; 
 			
 			try{

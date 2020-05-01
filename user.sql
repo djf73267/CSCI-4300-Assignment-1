@@ -1,19 +1,13 @@
-
 DROP DATABASE IF EXISTS `usr`;
 CREATE DATABASE `usr` DEFAULT CHARACTER SET utf8mb4;
 USE usr;
 
-
 DROP TABLE IF EXISTS acc;
 CREATE TABLE acc(
-	ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	ID INT NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,
     username VARCHAR(16) NOT NULL UNIQUE,
     pass VARCHAR(16) NOT NULL
 ) ENGINE=InnoDB;
-
-INSERT INTO acc(username, pass) VALUES('Kylie','706818');
-SELECT * FROM acc;
-
 
 DROP TABLE IF EXISTS prof;
 CREATE TABLE prof(
@@ -26,12 +20,14 @@ CREATE TABLE prof(
 
 DROP TABLE IF EXISTS ppp;
 CREATE TABLE ppp(
-	username VARCHAR(16) PRIMARY KEY,
+	ID INT NOT NULL PRIMARY KEY UNIQUE AUTO_INCREMENT,
+    username VARCHAR(16) NOT NULL UNIQUE,
     personality enum('Code Cowboy', 'The Ninja', 'The Magician', 'The Ruler'),
     taken TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO ppp(username, personality) VALUES('Kylie', 1);
-SELECT * FROM ppp;
-
 show databases;
+show tables;
+
+SELECT * from acc;
+SELECT * from ppp;

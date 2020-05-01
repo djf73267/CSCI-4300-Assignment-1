@@ -115,17 +115,13 @@
                 padding-top: 16px;
                 }
         </style>
-         <script type="text/javascript">
+         <script>
 			window.onload = function(){
 				if(!<%= session.getAttribute("logged_in") %>){
 					window.location.replace("login.jsp");
 				}
 				registerNavBar();
 				registerSideBar();
-				document.getElementById("first_name").value = localStorage.getItem("first_name");
-				document.getElementById("last_name").value = localStorage.getItem("last_name");
-				document.getElementById("email").value = localStorage.getItem("email");
-				document.getElementById("DOB").value = localStorage.getItem("DOB");
 			}
 			function registerNavBar() {
 				document.getElementById("logo").onclick = linkHome;
@@ -171,16 +167,8 @@
 					"<h4>You are now signed in as " + "<%= session.getAttribute("current_username") %>" + "." + "</h4>";
 				}
 			}
-
-			function update(){
-			   var n = document.getElementById("first_name").value;
-			   var m = document.getElementById("last_name").value;
-			   var o = document.getElementById("email").value; 
-			   var p = document.getElementById("DOB").value;
-				localStorage.setItem("first_name",n);
-				localStorage.setItem("last_name",m);
-				localStorage.setItem("email",o);
-				localStorage.setItem("DOB",p);
+			function update() {
+				
 			}
 		 </script>
 	</head>
@@ -230,9 +218,9 @@
                         <label><b>Email</b></label>
                         <input type="email" placeholder="Enter Email" name="EMAIL" required id = "email">
                         <button type = "submit" id = "submit" maxlength = "32">Update</button>
-                       
                     </div>
                 </form>
+				<p>This portion of the project has not been fully implemented.</p>
 			</div>
 			<div id="sidebar">
 				<h4>You are not currently signed in.<br></h4>
